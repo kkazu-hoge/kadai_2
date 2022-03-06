@@ -13,18 +13,18 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     if @book.save
       flash[:notice] = 'Book was successfuly created'
-      redirect_to show_path(@book.id)
+      redirect_to book_path(@book.id)
     else
       # 一覧遷移時にbooksのインスタンス変数に一覧用データ取得必要
       @books = Book.all
-      render :index
+      render :books
     end
   end
 
   def destroy
     book = Book.find(params[:id])
     book.destroy
-    redirect_to :index
+    redirect_to :books
   end
 
   def show
@@ -39,7 +39,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     if @book.update(book_params)
       flash[:notice] = 'Book was successfuly created'
-      redirect_to show_path(@book.id)
+      redirect_to book_path(@book.id)
     else
       render :edit
     end
