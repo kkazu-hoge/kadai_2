@@ -78,7 +78,7 @@ div {
     display: block;
 }
 
-div.input-field, div.create-action {
+div.input-field, div.action {
     margin-bottom: 10px;
 }
 
