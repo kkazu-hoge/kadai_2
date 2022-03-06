@@ -19,7 +19,22 @@
     <% end %>
   </tbody>
 </table>
+
 <h2>New book</h2>
+<% if @book.errors.any? %>
+  <!--エラー数によりメッセージを分岐-->
+  <% if @book.errors.count >= 2 %>
+    <%= @book.errors.count %> errors prohibibited this book from being saved:
+  <% else %>
+    <%= @book.errors.count %> error prohibibited this book from being saved:
+  <% end %>
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_with model: @book, url: index_c_path(@book.id) , method: :post do |book| %>
   <div class="input-field">
     <label>Title</label>
