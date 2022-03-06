@@ -12,9 +12,9 @@
     <tr>
       <td><%= books.title %></td>
       <td><%= books.body %></td>
-      <td>Show</td>
-      <td>Edit</td>
-      <td>Destroy</td>
+      <td><%= link_to "Show", show_path(books.id), method: :get %></td>
+      <td><%= link_to "Edit", edit_path(books.id), method: :get %></td>
+      <td><%= link_to "Destroy", index_d_path(books.id), method: :delete %></td>
     </tr>
     <% end %>
   </tbody>
@@ -22,14 +22,14 @@
 <h2>New book</h2>
 <%= form_with model: @book, url: index_c_path(@book.id) , method: :post do |book| %>
   <div class="input-field">
-    <h4>Title</h4>
+    <label>Title</label>
     <%= book.text_field :title %>
   </div>
   <div class="input-field">
-    <h4>Body</h4>
+    <label>Body</label>
     <%= book.text_area :body %>
   </div>
-  <div class="create-action">
+  <div class="action">
     <%= book.submit 'Create Book' %>
   </div>
 <% end %>
