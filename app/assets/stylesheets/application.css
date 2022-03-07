@@ -85,3 +85,27 @@ div.input-field, div.action {
 label {
     display: block;
 }
+
+.field_with_errors {
+    padding: 2px;
+    background-color: red;
+    display: table;
+}
+
+.err_area {
+    border: solid 3px;
+    border-color: #dc143c;
+    padding: 0;
+}
+
+.err_title {
+    color: white;
+    font-size: 12px;
+    background-color: #dc143c;
+    border: none;
+    margin: 0;
+}
+
+.err_mes_area {
+    background-color: white;
+}
