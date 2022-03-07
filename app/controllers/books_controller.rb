@@ -1,14 +1,10 @@
 class BooksController < ApplicationController
 
-  #View:index method:get 時のアクション
   def index
-    #一覧データ取得するためのインスタンス変数
     @books = Book.all
-    #新規投稿する際のデータを格納するインスタンス変数
     @book = Book.new
   end
 
-  #View:index method:post 時(Create Bookボタン押下)のアクション
   def create
     @book = Book.new(book_params)
     if @book.save
